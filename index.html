@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matty &amp; Katie | Wedding</title>
+  <title>Julie &amp; Ian | Wedding</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
 </head>
 <body>
   <header class="top-nav">
-    <div class="brand">Matty &amp; Katie</div>
+    <div class="brand">Julie &amp; Ian</div>
     <nav class="nav-links" aria-label="Planned pages">
       <!-- Future links: unhide when pages are ready -->
       <a class="nav-link" hidden href="#travel">Travel &amp; Stay</a>
@@ -24,12 +24,12 @@
   <main>
     <section class="hero">
       <div class="side-note side-note--left">Save the date</div>
-      <div class="side-note side-note--right">04.06.2027, York</div>
+      <div class="side-note side-note--right">23.05.2026, Fishlake, Doncaster</div>
 
       <div class="hero-title">
-        <div class="names">Matty</div>
+        <div class="names">Julie</div>
         <div class="ampersand">&amp;</div>
-        <div class="names">Katie</div>
+        <div class="names">Ian</div>
       </div>
     </section>
 
@@ -73,89 +73,8 @@
       </form>
     </section>
   </main>
-
-  <script>
-    (function () {
-  const button = document.getElementById('rsvp-button');
-  const form = document.getElementById('rsvp-form');
-  const submitButton = document.getElementById('rsvp-submit');
-  const nameInput = document.getElementById('rsvp-name');
-  const partySizeSelect = document.getElementById('rsvp-party-size');
-
-  if (!button || !form || !submitButton || !nameInput || !partySizeSelect) return;
-
-  const comingInputs = form.querySelectorAll('input[name="coming"]');
-
-  function updateSubmitVisibility() {
-    const comingSelected = form.querySelector('input[name="coming"]:checked');
-    const nameFilled = nameInput.value.trim().length > 0;
-
-    if (comingSelected && nameFilled) {
-      submitButton.removeAttribute('hidden');
-    } else {
-      submitButton.setAttribute('hidden', '');
-    }
-  }
-
-  comingInputs.forEach(function (input) {
-    input.addEventListener('change', updateSubmitVisibility);
-  });
-  nameInput.addEventListener('input', updateSubmitVisibility);
-
-  button.addEventListener('click', function () {
-    const isHidden = form.hasAttribute('hidden');
-    if (isHidden) {
-      form.removeAttribute('hidden');
-      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      form.setAttribute('hidden', '');
-    }
-  });
-
-  // --- THE FIX IS HERE ---
-  submitButton.addEventListener('click', function () {
-    const comingSelected = form.querySelector('input[name="coming"]:checked');
-    const name = nameInput.value.trim();
-    const partySize = partySizeSelect.value;
-
-    if (!comingSelected || !name) {
-      return;
-    }
-
-    // Disable the button so they don't click it twice
-    submitButton.disabled = true;
-    submitButton.innerText = "Sending...";
-
-    const payload = {
-      coming: comingSelected.value,
-      name: name,
-      partySize: partySize
-    };
-
-    // The fetch MUST be inside the click event listener
-    fetch('https://script.google.com/macros/s/AKfycbznphFMtIOBkW96bg0Fy43Xu3sdZHTN-08etYi2BL1trhFVaea_ubHi5PRijafIswWCIA/exec', {
-      method: 'POST',
-      mode: 'no-cors', // Essential for Google Apps Script from a static site
-      headers: {
-        'Content-Type': 'text/plain' // Avoids CORS preflight
-      },
-      body: JSON.stringify(payload)
-    })
-    .then(function() {
-      // With 'no-cors', we assume success if the catch block isn't hit
-      alert('Thank you for your RSVP, ' + name + '!');
-      form.setAttribute('hidden', '');
-      button.innerText = "RSVP Sent!";
-      button.disabled = true;
-    })
-    .catch(function (error) {
-      console.error('[RSVP] Error:', error);
-      alert('There was a problem sending your RSVP. Please try again.');
-      submitButton.disabled = false;
-      submitButton.innerText = "Submit";
-    });
-  });
-})();
-  </script>
+  <canvas id="blossomCanvas"></canvas>
+  <script src="script.js"></script>
 </body>
 </html>
+
