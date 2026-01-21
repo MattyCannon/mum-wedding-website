@@ -20,6 +20,32 @@ body {
   min-height: 100vh;
 }
 
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows clicking through the petals */
+    z-index: 999;
+}
+
+.tree-container {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 100px;
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    padding-top: 50vh;
+    text-align: center;
+    color: #d87093;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -101,103 +127,22 @@ a {
 }
 
 .hero-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
   color: var(--accent);
 }
 
 .names {
-  font-family: 'Ephesis', cursive;
-  font-size: clamp(3rem, 10vw, 7rem);
-  letter-spacing: 0.02em;
-  text-align: center;
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  letter-spacing: 0.08em;
 }
 
 .ampersand {
   font-family: 'Playfair Display', 'Times New Roman', serif;
   font-size: clamp(2.5rem, 8vw, 5rem);
   letter-spacing: 0.06em;
-}
-
-.invitation {
-  padding: 60px 24px;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.invitation-text {
-  font-family: 'Playfair Display', 'Times New Roman', serif;
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  line-height: 1.6;
-  color: var(--text);
-  letter-spacing: 0.04em;
-  margin: 0;
-}
-
-.when-where {
-  padding: 80px 24px;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
-  justify-content: center;
-  align-items: center;
-}
-
-.when-where-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 60px;
-  margin-bottom: 40px;
-}
-
-.when-where-item {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  align-items: center;
-  text-align: center;
-}
-
-.when-where-title {
-  font-family: 'Playfair Display', 'Times New Roman', serif;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  color: var(--accent);
-  letter-spacing: 0.06em;
-  margin: 0;
-  font-weight: 600;
-}
-
-.when-where-detail {
-  font-family: 'Raleway', sans-serif;
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  color: var(--text);
-  line-height: 1.8;
-  margin: 0;
-  letter-spacing: 0.02em;
-}
-
-.ceremony-note {
-  font-family: 'Raleway', sans-serif;
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin: 0;
-  font-style: italic;
-}
-
-.rsvp-note {
-  font-family: 'Raleway', sans-serif;
-  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-  color: var(--text);
-  margin: 0;
-  font-style: italic;
 }
 
 .details {
@@ -296,25 +241,13 @@ a {
     display: none;
   }
 
+  .side-note {
+    position: static;
+    margin-top: 32px;
+  }
+
   .hero {
-    min-height: 60vh;
-    padding: 60px 24px;
-  }
-
-  .invitation {
-    padding: 40px 24px;
-  }
-
-  .when-where {
-    padding: 60px 24px;
-  }
-
-  .when-where-content {
-    gap: 40px;
-  }
-
-  .details {
-    padding: 60px 24px 80px;
+    flex-direction: column;
+    gap: 32px;
   }
 }
-

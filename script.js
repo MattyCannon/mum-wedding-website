@@ -1,6 +1,7 @@
+// Write JavaScript here
 // script.js
 
-  (function () {
+(function () {
   const button = document.getElementById('rsvp-button');
   const form = document.getElementById('rsvp-form');
   const submitButton = document.getElementById('rsvp-submit');
@@ -99,13 +100,13 @@ resize();
 class Petal {
     constructor(startX, startY) {
         this.x = startX + (Math.random() * 100 - 50); // Spawn near tree center
-        this.y = startY + (Math.random() * 50);
-        this.size = Math.random() * 8 + 4;
-        this.speedY = Math.random() * 1.5 + 1;
-        this.speedX = Math.random() * 2 - 1;
+        this.y = startY ;
+        this.size = Math.random() * 8 + 3;
+        this.speedY = Math.random() * 1.0 + 1;
+        this.speedX = Math.random() * 3 - 1;
         this.rotation = Math.random() * 360;
         this.rotationSpeed = Math.random() * 1.5;
-        this.opacity = 1;
+        this.opacity = 0.6;
     }
 
     update() {

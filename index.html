@@ -1,76 +1,203 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Julie &amp; Ian | Wedding</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding of Julie & Ian</title>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ephesis&family=Playfair+Display:wght@500;600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Ephesis&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-text: #2f2f2f;
+      --secondary-text: #6b6b6b;
+      --accent: #c9a36a;
+      --background: #faf9f7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--background);
+      color: var(--primary-text);
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      padding: 4rem 1.5rem 6rem;
+      text-align: center;
+    }
+
+    /* ---------- TITLE ---------- */
+    .title {
+      font-family: 'Ephesis', cursive;
+      font-size: clamp(2.5rem, 10vw, 6rem);
+      font-weight: 100;
+      margin-bottom: 15.5rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ---------- DESCRIPTION ---------- */
+    .description {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--secondary-text);
+      max-width: 620px;
+      margin: 0 auto 3rem;
+    }
+
+    /* ---------- LOCATION INFO ---------- */
+    .details {
+      margin-bottom: 3.5rem;
+      font-size: 1rem;
+    }
+
+    .details h2 {
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      color: var(--secondary-text);
+    }
+
+    .details p {
+      margin: 0.4rem 0;
+    }
+
+    /* ---------- RSVP BUTTON ---------- */
+    .rsvp-button {
+      display: inline-block;
+      padding: 0.9rem 2.4rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: transparent;
+      color: var(--primary-text);
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 3rem;
+    }
+
+    .rsvp-button:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* ---------- RSVP SECTION ---------- */
+    .rsvp-section {
+      display: none;
+      max-width: 480px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid #e5e5e5;
+      text-align: left;
+    }
+
+    .rsvp-section h3 {
+      text-align: center;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 0.4rem;
+      color: var(--secondary-text);
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.7rem 0.6rem;
+      font-family: inherit;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 6px;
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 0.8rem;
+    }
+
+    .submit-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      margin-top: 5rem;
+      font-size: 0.75rem;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
-  <header class="top-nav">
-    <div class="brand">Julie &amp; Ian</div>
-    <div class="tree-container">
-        <div id="cherry-tree">🌸</div>
+  <main class="container">
+     <div class="tree-container">
+        <div id="cherry-tree"></div>
     </div>
-    <nav class="nav-links" aria-label="Planned pages">
-      <!-- Future links: unhide when pages are ready -->
-      <a class="nav-link" hidden href="#travel">Travel &amp; Stay</a>
-      <a class="nav-link" hidden href="#things">Things to Do</a>
-      <a class="nav-link" hidden href="#registry">Registry</a>
-    </nav>
-    <a class="nav-button" href="#rsvp-section">RSVP</a>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-title">
-        <div class="names">Wedding of Julie & Ian</div>
-      </div>
+    <!-- TITLE -->
+    <h1 class="title">Wedding of Julie &amp; Ian</h1>
+
+    <!-- DESCRIPTION -->
+    <p class="description">
+      Together with our families and friends, we invite you to celebrate our wedding.</br>
+      The fun begins with the ceremony at 1pm.</br>
+      The happy day ends when the dancing finishes with the DJ at midnight.
+    </p>
+
+    <!-- LOCATION INFO -->
+    <section class="details">
+      <h2>When &amp; Where</h2>
+      <p><strong>Date:</strong> Saturday, 12 July 2026</p>
+      <p><strong>Ceremony:</strong> 1:00pm</p>
+      <p><strong>Reception:</strong> Drinks &amp; Dinner from 3:00pm</p>
+      <p><strong>Venue:</strong> Rosewood Manor, Oxfordshire</p>
     </section>
 
-    <section class="invitation">
-      <p class="invitation-text">Together with our families and friends,<br>we invite you to celebrate our wedding</p>
-    </section>
-
-    <section class="when-where">
-      <div class="when-where-content">
-        <div class="when-where-item">
-          <h2 class="when-where-title">When</h2>
-          <p class="when-where-detail">23rd May 2026</p>
-          <p class="when-where-detail">1 o'clock in the afternoon</p>
-        </div>
-        <div class="when-where-item">
-          <h2 class="when-where-title">Where</h2>
-          <p class="when-where-detail">Fishlake Mill</p>
-          <p class="when-where-detail">Eastfield Road</p>
-          <p class="when-where-detail">Fishlake, Doncaster</p>
-          <p class="when-where-detail">DN7 5LH</p>
-        </div>
-      </div>
-      <p class="ceremony-note">Outside Ceremony</p>
-    </section>
-
+    <!--RSVP SECTION - with script-->
     <section class="details" id="rsvp-section">
-      <p class="details-text">The fun begins with the ceremony at 1pm</p>
-      <p class="details-text">The happy day ends when the dancing finishes with the DJ at midnight</p>
-      <p class="rsvp-note">Please RSVP for food menu selection</p>
-
       <button class="cta-button" id="rsvp-button" type="button">RSVP</button>
 
       <form class="rsvp-form" id="rsvp-form" aria-label="RSVP form" hidden>
         <div class="rsvp-field">
-          <span class="rsvp-label">I am coming</span>
+          <span class="rsvp-label">Will you be attending?</span>
           <div class="rsvp-options">
             <label>
               <input type="radio" name="coming" value="yes">
-              Yes
+              Joyfully accepts
             </label>
             <label>
               <input type="radio" name="coming" value="no">
-              No
+              Regretfully Declines
             </label>
           </div>
         </div>
@@ -81,20 +208,59 @@
         </div>
 
         <div class="rsvp-field">
-          <label class="rsvp-label" for="rsvp-party-size">Number in your party</label>
+          <label class="rsvp-label" for="rsvp-party-size">Your Meal Preference</label>
           <select id="rsvp-party-size" name="partySize" class="rsvp-input">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
+            <option value="1">Meat</option>
+            <option value="2">Fish</option>
+            <option value="3">Veggie</option>
           </select>
         </div>
 
         <button class="cta-button" id="rsvp-submit" type="button" hidden>Submit</button>
       </form>
     </section>
+
+    <!-- RSVP SECTION (chatgpt) -->
+    <!-- RSVP BUTTON -->
+    <!-- <button class="rsvp-button" onclick="toggleRSVP()">RSVP</button> -->
+
+    <!-- <section id="rsvp" class="rsvp-section">
+      <h3>Kindly Respond</h3>
+
+      <form>
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Your name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="attendance">Will you be attending?</label>
+          <select id="attendance" required>
+            <option value="">Select an option</option>
+            <option value="yes">Joyfully accepts</option>
+            <option value="no">Regretfully declines</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="meal">Meal Preference</label>
+          <select id="meal" required>
+            <option value="">Choose a meal</option>
+            <option value="meat">Meat</option>
+            <option value="fish">Fish</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="vegan">Vegan</option>
+          </select>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit RSVP</button>
+      </form>
+    </section> -->
+
+    <footer>
+      Julie &amp; Ian · We can’t wait to celebrate with you
+    </footer>
+
   </main>
   <canvas id="blossomCanvas"></canvas>
   <script src="script.js"></script>
