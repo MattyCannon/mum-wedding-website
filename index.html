@@ -22,13 +22,35 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    body {
       font-family: 'Inter', sans-serif;
       background: var(--background);
       color: var(--primary-text);
-      display: flex;
-      justify-content: center;
+      display: block;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('cherry-blossom-tree.jpg');
+      background-repeat: no-repeat;
+      background-position: 60% center;
+      background-size: auto 80%;
+      opacity: 0.15;
+      z-index: 0;
+      pointer-events: none;
     }
 
     .container {
@@ -36,6 +58,10 @@
       width: 100%;
       padding: 4rem 1.5rem 6rem;
       text-align: center;
+      margin: 0 auto;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
     }
 
     /* ---------- TITLE ---------- */
@@ -53,13 +79,16 @@
       line-height: 1.7;
       color: var(--secondary-text);
       max-width: 620px;
-      margin: 0 auto 3rem;
+      margin: 0 auto 5rem;
     }
 
     /* ---------- LOCATION INFO ---------- */
     .details {
-      margin-bottom: 3.5rem;
+      margin: 0 auto 5rem;
       font-size: 1rem;
+      text-align: center;
+      max-width: 100%;
+      width: 100%;
     }
 
     .details h2 {
@@ -150,17 +179,163 @@
       opacity: 0.9;
     }
 
+    /* ---------- RSVP FORM STYLES ---------- */
+    .cta-button {
+      display: inline-block;
+      padding: 0.9rem 2.4rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: transparent;
+      color: var(--primary-text);
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin: 2rem 0 3rem;
+      font-family: inherit;
+    }
+
+    .cta-button:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    .rsvp-form {
+      max-width: 480px;
+      margin: 2rem auto 0;
+      padding: 2rem;
+      border-top: 1px solid #e5e5e5;
+      text-align: left;
+      display: block !important;
+    }
+
+    .rsvp-form[hidden] {
+      display: none !important;
+    }
+
+    .rsvp-field {
+      margin-bottom: 1.5rem;
+    }
+
+    .rsvp-label {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 0.6rem;
+      color: var(--secondary-text);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .rsvp-options {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .rsvp-options label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--primary-text);
+      cursor: pointer;
+    }
+
+    .rsvp-input {
+      width: 100%;
+      padding: 0.7rem 0.6rem;
+      font-family: inherit;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      background: white;
+    }
+
+    .rsvp-input:focus {
+      outline: 1px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* ---------- TREE CONTAINER ---------- */
+    .tree-container {
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 100px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    #cherry-tree {
+      font-size: 100px;
+    }
+
+    /* ---------- CANVAS ---------- */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+
     /* ---------- FOOTER ---------- */
     footer {
       margin-top: 5rem;
       font-size: 0.75rem;
       color: #aaa;
     }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      .container {
+        padding: 2rem 1rem 4rem;
+        width: 100%;
+      }
+
+      .title {
+        margin-bottom: 8rem;
+        font-size: clamp(2rem, 12vw, 4rem);
+      }
+
+      .description {
+        font-size: 0.95rem;
+        margin-bottom: 3.5rem;
+        max-width: 100%;
+      }
+
+      .details {
+        font-size: 0.9rem;
+        margin-bottom: 4rem;
+        width: 100%;
+      }
+
+      .cta-button {
+        margin: 1.5rem 0 2.5rem;
+      }
+
+      .rsvp-form {
+        padding: 1.5rem 1rem;
+        max-width: 100%;
+      }
+
+      .tree-container {
+        font-size: 60px;
+      }
+
+      #cherry-tree {
+        font-size: 60px;
+      }
+    }
   </style>
 </head>
 <body>
   <main class="container">
-     <div class="tree-container">
+    <div class="tree-container">
         <div id="cherry-tree"></div>
     </div>
 
@@ -169,18 +344,19 @@
 
     <!-- DESCRIPTION -->
     <p class="description">
-      Together with our families and friends, we invite you to celebrate our wedding.</br>
-      The fun begins with the ceremony at 1pm.</br>
+      Together with our families and friends, we invite you to celebrate our wedding.<br>
+      The fun begins with the ceremony at 1pm.<br>
       The happy day ends when the dancing finishes with the DJ at midnight.
     </p>
 
     <!-- LOCATION INFO -->
     <section class="details">
       <h2>When &amp; Where</h2>
-      <p><strong>Date:</strong> Saturday, 12 July 2026</p>
-      <p><strong>Ceremony:</strong> 1:00pm</p>
-      <p><strong>Reception:</strong> Drinks &amp; Dinner from 3:00pm</p>
-      <p><strong>Venue:</strong> Rosewood Manor, Oxfordshire</p>
+      <p><strong>Date:</strong> 23rd May 2026</p>
+      <p><strong>Ceremony:</strong> 1:00pm (Outside Ceremony)</p>
+      <p><strong>Reception:</strong> The happy day ends when the dancing finishes with the DJ at midnight</p>
+      <p><strong>Venue:</strong> Fishlake Mill</p>
+      <p>Eastfield Road, Fishlake, Doncaster DN7 5LH</p>
     </section>
 
     <!--RSVP SECTION - with script-->
