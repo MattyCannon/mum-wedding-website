@@ -202,11 +202,11 @@
     }
 
     .rsvp-form {
-      max-width: 480px;
+      max-width: 520px;
       margin: 2rem auto 0;
       padding: 2rem;
       border-top: 1px solid #e5e5e5;
-      text-align: left;
+      text-align: center;
       display: block !important;
     }
 
@@ -216,6 +216,10 @@
 
     .rsvp-field {
       margin-bottom: 1.5rem;
+      text-align: left;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .rsvp-label {
@@ -231,6 +235,7 @@
       display: flex;
       gap: 1.5rem;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     .rsvp-options label {
@@ -255,6 +260,11 @@
     .rsvp-input:focus {
       outline: 1px solid var(--accent);
       outline-offset: 2px;
+    }
+
+    .rsvp-actions {
+      text-align: center;
+      margin-top: 1.5rem;
     }
 
     /* ---------- TREE CONTAINER ---------- */
@@ -384,15 +394,55 @@
         </div>
 
         <div class="rsvp-field">
-          <label class="rsvp-label" for="rsvp-party-size">Your Meal Preference</label>
-          <select id="rsvp-party-size" name="partySize" class="rsvp-input">
-            <option value="1">Meat</option>
-            <option value="2">Fish</option>
-            <option value="3">Veggie</option>
+          <p class="rsvp-label">Meal Choices</p>
+          <p style="font-size: 0.85rem; color: var(--secondary-text); margin-top: 0;">
+            Please choose one starter, one main and one dessert.
+          </p>
+        </div>
+
+        <div class="rsvp-field">
+          <label class="rsvp-label" for="starter-choice">Starter</label>
+          <select id="starter-choice" name="starter" class="rsvp-input">
+            <option value="">Please select a starter</option>
+            <option value="Tomato Soup with a Cream Swirl">Tomato Soup with a Cream Swirl</option>
+            <option value="Classic Prawn Cocktail with Flutes of Brown Bread">Classic Prawn Cocktail with Flutes of Brown Bread</option>
+            <option value="Stack of Halloumi, Pepper and Courgette with a Balsamic Syrup (v)">Stack of Halloumi, Pepper and Courgette with a Balsamic Syrup (v)</option>
           </select>
         </div>
 
-        <button class="cta-button" id="rsvp-submit" type="button" hidden>Submit</button>
+        <div class="rsvp-field">
+          <label class="rsvp-label" for="main-choice">Main</label>
+          <select id="main-choice" name="main" class="rsvp-input">
+            <option value="">Please select a main</option>
+            <option value="Chicken Supreme stuffed with Mushroom Mousse and wrapped in Bacon with a Madeira Demi-Glace">
+              Chicken Supreme stuffed with Mushroom Mousse and wrapped in Bacon with a Madeira Demi-Glace
+            </option>
+            <option value="Oven-Roasted Salmon with a Herb Crust in a Prawn Butter Sauce">
+              Oven-Roasted Salmon with a Herb Crust in a Prawn Butter Sauce
+            </option>
+            <option value="Fishlake’s Famous Steak and Ale Pie">Fishlake’s Famous Steak and Ale Pie</option>
+          </select>
+        </div>
+
+        <div class="rsvp-field">
+          <label class="rsvp-label" for="dessert-choice">Dessert</label>
+          <select id="dessert-choice" name="dessert" class="rsvp-input">
+            <option value="">Please select a dessert</option>
+            <option value="Meringue Nest filled with Fresh Exotic Fruits">Meringue Nest filled with Fresh Exotic Fruits</option>
+            <option value="Chocolate Torte with a Berry Compote">Chocolate Torte with a Berry Compote</option>
+            <option value="Apple Crumble with Crème Anglaise">Apple Crumble with Crème Anglaise</option>
+            <option value="Three Cheese Platter">Three Cheese Platter</option>
+          </select>
+        </div>
+
+        <div class="rsvp-field">
+          <label class="rsvp-label" for="rsvp-dietary">Dietary needs or allergies</label>
+          <textarea id="rsvp-dietary" name="dietary" class="rsvp-input" rows="3" placeholder="Please let us know of any dietary needs or allergies. Thank you"></textarea>
+        </div>
+
+        <div class="rsvp-actions">
+          <button class="cta-button" id="rsvp-submit" type="button" hidden>Submit</button>
+        </div>
       </form>
     </section>
 

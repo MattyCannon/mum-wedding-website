@@ -6,9 +6,12 @@
   const form = document.getElementById('rsvp-form');
   const submitButton = document.getElementById('rsvp-submit');
   const nameInput = document.getElementById('rsvp-name');
-  const partySizeSelect = document.getElementById('rsvp-party-size');
+  const starterSelect = document.getElementById('starter-choice');
+  const mainSelect = document.getElementById('main-choice');
+  const dessertSelect = document.getElementById('dessert-choice');
+  const dietaryInput = document.getElementById('rsvp-dietary');
 
-  if (!button || !form || !submitButton || !nameInput || !partySizeSelect) return;
+  if (!button || !form || !submitButton || !nameInput || !starterSelect || !mainSelect || !dessertSelect) return;
 
   const comingInputs = form.querySelectorAll('input[name="coming"]');
 
@@ -42,7 +45,10 @@
   submitButton.addEventListener('click', function () {
     const comingSelected = form.querySelector('input[name="coming"]:checked');
     const name = nameInput.value.trim();
-    const partySize = partySizeSelect.value;
+    const starter = starterSelect.value;
+    const main = mainSelect.value;
+    const dessert = dessertSelect.value;
+    const dietary = dietaryInput ? dietaryInput.value.trim() : '';
 
     if (!comingSelected || !name) {
       return;
@@ -55,11 +61,14 @@
     const payload = {
       coming: comingSelected.value,
       name: name,
-      partySize: partySize
+      starter: starter,
+      main: main,
+      dessert: dessert,
+      dietary: dietary
     };
 
     // The fetch MUST be inside the click event listener
-    fetch('https://script.google.com/macros/s/AKfycbznphFMtIOBkW96bg0Fy43Xu3sdZHTN-08etYi2BL1trhFVaea_ubHi5PRijafIswWCIA/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbymxvN_ygtbWr82L88wxM6anJVWCGTxqMynezcbvvKT7lZJpnLSlxvMnvr1okqsKZlS/exec', {
       method: 'POST',
       mode: 'no-cors', // Essential for Google Apps Script from a static site
       headers: {

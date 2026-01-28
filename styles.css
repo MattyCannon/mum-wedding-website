@@ -173,6 +173,7 @@ a {
   font-weight: 600;
   border-radius: 3px;
   border: 1px solid var(--accent);
+  text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
@@ -189,7 +190,7 @@ a {
   border-radius: 4px;
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.6);
-  text-align: left;
+  text-align: center;
 }
 
 .rsvp-field {
@@ -198,23 +199,27 @@ a {
   gap: 6px;
   margin-bottom: 18px;
   font-size: 0.95rem;
+  text-align: center;
 }
 
 .rsvp-label {
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-size: 0.78rem;
+  text-align: center;
 }
 
 .rsvp-options {
   display: flex;
   gap: 18px;
+  text-align: center;
 }
 
 .rsvp-options label {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  text-align: center;
 }
 
 .rsvp-input {
