@@ -212,14 +212,11 @@ a {
 .rsvp-options {
   display: flex;
   gap: 18px;
-  text-align: center;
 }
 
 .rsvp-options label {
   display: inline-flex;
-  align-items: center;
   gap: 6px;
-  text-align: center;
 }
 
 .rsvp-input {

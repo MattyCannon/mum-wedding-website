@@ -68,7 +68,7 @@
     };
 
     // The fetch MUST be inside the click event listener
-    fetch('https://script.google.com/macros/s/AKfycbymxvN_ygtbWr82L88wxM6anJVWCGTxqMynezcbvvKT7lZJpnLSlxvMnvr1okqsKZlS/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbzSQhSpJTAUZhre1nM06P-4E8KldQJUuBzBEDxupPNkM-ecUkHRhc0woXSKkM1hiQSV/exec', {
       method: 'POST',
       mode: 'no-cors', // Essential for Google Apps Script from a static site
       headers: {
